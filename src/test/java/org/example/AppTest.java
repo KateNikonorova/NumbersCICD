@@ -1,38 +1,81 @@
 package org.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+import java.io.File;
+import java.io.FileNotFoundException;
+
+class AppTest {
+
+    private static NumberCalc app1;
+    private static NumberCalc app2;
+    private static NumberCalc app3;
+//    private static NumberCalc app4;
+
+    @BeforeAll
+    static void setUpAll() {
+        app1 = new NumberCalc();
+        app2 = new NumberCalc();
+        app3 = new NumberCalc();
+
+        try {
+            app1.readFile(getFile("test1.txt"));
+            app2.readFile(getFile("test2.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    private static File getFile(String filename) {
+        ClassLoader classLoader = AppTest.class.getClassLoader();
+        File file = new File(classLoader.getResource(filename).getFile());
+        return file;
     }
 
-    /**
-     * Rigourous Test :-)
+
+    @BeforeEach
+    void setUp() {
+    }
+
+    /*
+    @org.junit.jupiter.api.Test
+    void readFile() {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("test1.txt").getFile());
+
+        try {
+            App.readFile(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Assertions.assertNull(file);
+    }
+
      */
-    public void testApp()
-    {
-        assertTrue( true );
+
+    @org.junit.jupiter.api.Test
+    void _min() {
+        Assertions.assertEquals(1, app1._min());
+        Assertions.assertEquals(1, app2._min());
+    }
+
+    @org.junit.jupiter.api.Test
+    void _max() {
+        Assertions.assertEquals(1, app1._max());
+        Assertions.assertEquals(4, app2._max());
+    }
+
+    @org.junit.jupiter.api.Test
+    void _sum() {
+        Assertions.assertEquals(1, app1._sum());
+        Assertions.assertEquals(10, app2._sum());
+    }
+
+    @org.junit.jupiter.api.Test
+    void _mult() {
+        Assertions.assertEquals(1, app1._mult());
+        Assertions.assertEquals(24, app2._mult());
     }
 }
