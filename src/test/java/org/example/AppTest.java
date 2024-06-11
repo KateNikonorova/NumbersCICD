@@ -69,7 +69,7 @@ class AppTest {
         Assertions.assertEquals(1, app1._min().get());
         Assertions.assertEquals(1, app2._min().get());
         Assertions.assertFalse(app3._min().isPresent());
-        Assertions.assertEquals(-43, app4._min().get());
+        Assertions.assertEquals(-431, app4._min().get());
         Assertions.assertEquals(-34, app5._min().get());
     }
 
