@@ -22,14 +22,14 @@
 [//]: # (![image]&#40;https://github.com/KateNikonorova/NumbersCICD/assets/167033338/a2b099f1-04b1-4d02-819b-b8e90579ac93&#41;)
 
 Код представлен в файле *NumbersCICD/src/main/java/org/example/NumberCalc.java*  
-[NumberCalc.java](https://github.com/KateNikonorova/NumbersCICD/blob/bfe93139fa0d89be95a7b8c8da6fb2f17b4eaeb9/src/main/java/org/example/NumberCalc.java) 
+[NumberCalc.java](https://github.com/KateNikonorova/NumbersCICD/blob/main/src/main/java/org/example/NumberCalc.java) 
 
 ### 2. Реализация тестов для проверки корректности функций поиска минимума, максимума, сложения и умножения
-Реализованы 4 unit теста для проверки кооректной работы функций min, max, sum, mult. Тесты написаны в файле *NumbersCICD/src/test/java/org/example/AppTest.java* [AppTest.java](https://github.com/KateNikonorova/NumbersCICD/blob/bfe93139fa0d89be95a7b8c8da6fb2f17b4eaeb9/src/test/java/org/example/AppTest.java). 
+Реализованы 4 unit теста для проверки кооректной работы функций min, max, sum, mult. Тесты написаны в файле *NumbersCICD/src/test/java/org/example/AppTest.java* [AppTest.java](https://github.com/KateNikonorova/NumbersCICD/blob/main/src/test/java/org/example/AppTest.java). 
 Для тестов берутся заранее подготовленные файлы *test<Number>.txt* с номерами 1-5 из каталога test/resources.
 
 ### 3. Реализация тестов для проверки скорости работы программы при увеличении размера входного файла
-В файле *NumbersCICD/src/test/java/org/example/SpeedCheckGenerator.java* [SpeedCheckGenerator.java](https://github.com/KateNikonorova/NumbersCICD/blob/bfe93139fa0d89be95a7b8c8da6fb2f17b4eaeb9/src/test/java/org/example/SpeedCheckGenerator.java) написан генератор текстовых файлов для нагрузочного тестирования. 
+В файле *NumbersCICD/src/test/java/org/example/SpeedCheckGenerator.java* [SpeedCheckGenerator.java](https://github.com/KateNikonorova/NumbersCICD/blob/main/src/test/java/org/example/SpeedCheckGenerator.java) написан генератор текстовых файлов для нагрузочного тестирования. 
 
 В файле *NumbersCICD/src/test/java/org/example/AppTestBenchmarks.java* [AppTestBenchmarks.java](https://github.com/KateNikonorova/NumbersCICD/blob/bfe93139fa0d89be95a7b8c8da6fb2f17b4eaeb9/src/test/java/org/example/AppTestBenchmarks.java) написан код для нагрузочного тестирования. 
 Были созданы файлы в каталоге test с количеством чисел от 100_000 до 1_000_000 с шагом в 100_000, они называются в формате *speedCheck<Number>* с номерами 1-10. Для каждого из файлов запускалось нагрузочное тестирование, результатом которого было среднее время работы программы на всех тестах. Среднее время записано в файле с кодом для графика [plot.ipynb](https://github.com/KateNikonorova/NumbersCICD/blob/bfe93139fa0d89be95a7b8c8da6fb2f17b4eaeb9/plot.ipynb). Затем был построен график.
@@ -38,7 +38,7 @@
 В файл с тестами *NumbersCICD/src/test/java/org/example/AppTest.java* был добавлен сценарный тест *readFileTest*, в котором тестируется корректность чтения информации из текстовых файлов, проверяется сколько чисел считалось из файла и не пустой ли массив чисел после чтения.
 
 ### 5. Построить график зависимости времени выполнения функции _max от кол-ва чисел в файле
-График построен в пункте 3 [chart.png](https://github.com/KateNikonorova/NumbersCICD/blob/bfe93139fa0d89be95a7b8c8da6fb2f17b4eaeb9/output.png). 
+График построен в пункте 3 [chart.png](https://github.com/KateNikonorova/NumbersCICD/blob/main/output.png). 
 Он был построен с помощью библиотек seaborn, matplotlib, pandas. В файле output.png отражена искомая зависимость (практически линейная). 
 По оси x расположено количество чисел в файле в тысячах, по оси y - секунды.
 
