@@ -3,14 +3,19 @@ package org.example;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class NumberCalc {
 
     private ArrayList<Integer> numbers;
 
-    public void readFile(String fileName) throws FileNotFoundException {
-        readFile(new File(fileName));
+    public void readFile(String fileName) {
+        try {
+            readFile(new File(fileName));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void readFile(File file) throws FileNotFoundException {
@@ -35,7 +40,9 @@ public class NumberCalc {
     }
 
 
-    public int _min() {
+    public Optional<Integer> _min() {
+        if (isEmpty()) return Optional.empty();
+
         int min = (int)numbers.get(0);
 
         for (int i = 1; i < numbers.size(); i++) {
@@ -44,10 +51,12 @@ public class NumberCalc {
             }
         }
 
-        return min;
+        return Optional.of(min);
     }
 
-    public int _max() {
+    public Optional<Integer> _max() {
+        if (isEmpty()) return Optional.empty();
+
         int max = (int)numbers.get(0);
 
         for (int i = 1; i < numbers.size(); i++) {
@@ -56,26 +65,32 @@ public class NumberCalc {
             }
         }
 
-        return max;
+        return Optional.of(max);
     }
 
-    public long _sum() {
+    public Optional<Long> _sum() {
+
+        if (isEmpty()) return Optional.empty();
+
         long sum = 0;
 
         for (int i = 0; i < numbers.size(); i++) {
             sum += numbers.get(i);
         }
 
-        return sum;
+        return Optional.of(sum);
     }
 
-    public long _mult() {
+    public Optional<Long> _mult() {
+
+        if (isEmpty()) return Optional.empty();
+
         long mult = 1;
 
         for (int i = 0; i < numbers.size(); i++) {
             mult *= numbers.get(i);
         }
 
-        return mult;
+        return Optional.of(mult);
     }
 }
