@@ -1,5 +1,5 @@
 ## Техническое задание № 2 (Т32)
-![Java CI with Maven](https://github.com/KateNikonorova/NumbersCICD/actions/workflows/maven.yml/badge.svg)
+[![Java CI with Maven](https://github.com/KateNikonorova/NumbersCICD/actions/workflows/maven.yml/badge.svg)](https://github.com/KateNikonorova/NumbersCICD/actions/workflows/maven.yml)
 ### Описание проекта:
 #### Задачи:
 1. Реализовать простейшую программу на Java, которая будет считывать из файла числа, 
